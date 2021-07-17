@@ -196,3 +196,52 @@
 2021-07-18 00:20:57,863 DEBUG a.t.TodoManagementSpringBoot2Application [restartedMain] Running with Spring Boot v2.0.4.RELEASE, Spring v5.0.8.RELEASE
 2021-07-18 00:20:57,863 INFO a.t.TodoManagementSpringBoot2Application [restartedMain] No active profile set, falling back to default profiles: default
 2021-07-18 00:21:05,533 INFO a.t.TodoManagementSpringBoot2Application [restartedMain] Started TodoManagementSpringBoot2Application in 8.261 seconds (JVM running for 10.281)
+2021-07-18 00:47:21,836 INFO a.t.TodoManagementSpringBoot2Application [restartedMain] Starting TodoManagementSpringBoot2Application on DESKTOP-BRB3BI0 with PID 9360 (C:\Users\Abdullah.DESKTOP-BRB3BI0\Desktop\todo-management-spring-boot\target\classes started by Abdullah in C:\Users\Abdullah.DESKTOP-BRB3BI0\Desktop\todo-management-spring-boot)
+2021-07-18 00:47:21,837 DEBUG a.t.TodoManagementSpringBoot2Application [restartedMain] Running with Spring Boot v2.0.4.RELEASE, Spring v5.0.8.RELEASE
+2021-07-18 00:47:21,838 INFO a.t.TodoManagementSpringBoot2Application [restartedMain] No active profile set, falling back to default profiles: default
+2021-07-18 00:47:28,000 DEBUG o.h.SQL [restartedMain] create table hibernate_sequence (next_val bigint) engine=InnoDB
+2021-07-18 00:47:28,303 DEBUG o.h.SQL [restartedMain] insert into hibernate_sequence values ( 1 )
+2021-07-18 00:47:28,362 DEBUG o.h.SQL [restartedMain] create table revinfo (rev integer not null auto_increment, revtstmp bigint, primary key (rev)) engine=InnoDB
+2021-07-18 00:47:28,678 DEBUG o.h.SQL [restartedMain] create table todos (id bigint not null, description varchar(255), target_date datetime, user_name varchar(255), primary key (id)) engine=InnoDB
+2021-07-18 00:47:29,002 DEBUG o.h.SQL [restartedMain] create table todos_aud (id bigint not null, rev integer not null, revtype tinyint, description varchar(255), description_mod bit, target_date datetime, target_date_mod bit, user_name varchar(255), user_name_mod bit, primary key (id, rev)) engine=InnoDB
+2021-07-18 00:47:29,203 DEBUG o.h.SQL [restartedMain] alter table todos_aud add constraint FKg8v5fxfm90ylw5jqo8v58abph foreign key (rev) references revinfo (rev)
+2021-07-18 00:49:43,661 INFO a.t.TodoManagementSpringBoot2Application [restartedMain] Starting TodoManagementSpringBoot2Application on DESKTOP-BRB3BI0 with PID 4592 (C:\Users\Abdullah.DESKTOP-BRB3BI0\Desktop\todo-management-spring-boot\target\classes started by Abdullah in C:\Users\Abdullah.DESKTOP-BRB3BI0\Desktop\todo-management-spring-boot)
+2021-07-18 00:49:43,662 DEBUG a.t.TodoManagementSpringBoot2Application [restartedMain] Running with Spring Boot v2.0.4.RELEASE, Spring v5.0.8.RELEASE
+2021-07-18 00:49:43,663 INFO a.t.TodoManagementSpringBoot2Application [restartedMain] No active profile set, falling back to default profiles: default
+2021-07-18 00:51:09,270 INFO a.t.TodoManagementSpringBoot2Application [restartedMain] Starting TodoManagementSpringBoot2Application on DESKTOP-BRB3BI0 with PID 16936 (C:\Users\Abdullah.DESKTOP-BRB3BI0\Desktop\todo-management-spring-boot\target\classes started by Abdullah in C:\Users\Abdullah.DESKTOP-BRB3BI0\Desktop\todo-management-spring-boot)
+2021-07-18 00:51:09,275 DEBUG a.t.TodoManagementSpringBoot2Application [restartedMain] Running with Spring Boot v2.0.4.RELEASE, Spring v5.0.8.RELEASE
+2021-07-18 00:51:09,276 INFO a.t.TodoManagementSpringBoot2Application [restartedMain] No active profile set, falling back to default profiles: default
+2021-07-18 00:53:40,575 INFO a.t.TodoManagementSpringBoot2Application [restartedMain] Starting TodoManagementSpringBoot2Application on DESKTOP-BRB3BI0 with PID 9488 (C:\Users\Abdullah.DESKTOP-BRB3BI0\Desktop\todo-management-spring-boot\target\classes started by Abdullah in C:\Users\Abdullah.DESKTOP-BRB3BI0\Desktop\todo-management-spring-boot)
+2021-07-18 00:53:40,576 DEBUG a.t.TodoManagementSpringBoot2Application [restartedMain] Running with Spring Boot v2.0.4.RELEASE, Spring v5.0.8.RELEASE
+2021-07-18 00:53:40,577 INFO a.t.TodoManagementSpringBoot2Application [restartedMain] No active profile set, falling back to default profiles: default
+2021-07-18 00:53:47,851 INFO a.t.TodoManagementSpringBoot2Application [restartedMain] Started TodoManagementSpringBoot2Application in 7.706 seconds (JVM running for 10.688)
+2021-07-18 00:54:00,682 DEBUG o.h.SQL [http-nio-8080-exec-9] select todo0_.id as id1_1_, todo0_.description as descript2_1_, todo0_.target_date as target_d3_1_, todo0_.user_name as user_nam4_1_ from todos todo0_ where todo0_.user_name=?
+2021-07-18 00:54:06,652 DEBUG o.h.SQL [http-nio-8080-exec-9] select next_val as id_val from hibernate_sequence for update
+2021-07-18 00:54:06,653 DEBUG o.h.SQL [http-nio-8080-exec-9] update hibernate_sequence set next_val= ? where next_val=?
+2021-07-18 00:54:06,782 DEBUG o.h.SQL [http-nio-8080-exec-9] insert into todos (description, target_date, user_name, id) values (?, ?, ?, ?)
+2021-07-18 00:54:06,793 DEBUG o.h.SQL [http-nio-8080-exec-9] insert into revinfo (revtstmp) values (?)
+2021-07-18 00:54:06,797 DEBUG o.h.SQL [http-nio-8080-exec-9] insert into todos_aud (revtype, description, description_mod, target_date, target_date_mod, user_name, user_name_mod, id, rev) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2021-07-18 00:54:06,841 DEBUG o.h.SQL [http-nio-8080-exec-4] select todo0_.id as id1_1_, todo0_.description as descript2_1_, todo0_.target_date as target_d3_1_, todo0_.user_name as user_nam4_1_ from todos todo0_ where todo0_.user_name=?
+2021-07-18 00:54:31,410 DEBUG o.h.SQL [http-nio-8080-exec-1] select todo0_.id as id1_1_0_, todo0_.description as descript2_1_0_, todo0_.target_date as target_d3_1_0_, todo0_.user_name as user_nam4_1_0_ from todos todo0_ where todo0_.id=?
+2021-07-18 00:54:35,190 DEBUG o.h.SQL [http-nio-8080-exec-4] select todo0_.id as id1_1_0_, todo0_.description as descript2_1_0_, todo0_.target_date as target_d3_1_0_, todo0_.user_name as user_nam4_1_0_ from todos todo0_ where todo0_.id=?
+2021-07-18 00:54:35,192 DEBUG o.h.SQL [http-nio-8080-exec-4] update todos set description=?, target_date=?, user_name=? where id=?
+2021-07-18 00:54:35,196 DEBUG o.h.SQL [http-nio-8080-exec-4] insert into revinfo (revtstmp) values (?)
+2021-07-18 00:54:35,197 DEBUG o.h.SQL [http-nio-8080-exec-4] insert into todos_aud (revtype, description, description_mod, target_date, target_date_mod, user_name, user_name_mod, id, rev) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2021-07-18 00:54:35,781 DEBUG o.h.SQL [http-nio-8080-exec-7] select todo0_.id as id1_1_, todo0_.description as descript2_1_, todo0_.target_date as target_d3_1_, todo0_.user_name as user_nam4_1_ from todos todo0_ where todo0_.user_name=?
+2021-07-18 00:54:55,972 DEBUG o.h.SQL [http-nio-8080-exec-8] select todo0_.id as id1_1_0_, todo0_.description as descript2_1_0_, todo0_.target_date as target_d3_1_0_, todo0_.user_name as user_nam4_1_0_ from todos todo0_ where todo0_.id=?
+2021-07-18 00:54:55,982 DEBUG o.h.SQL [http-nio-8080-exec-8] delete from todos where id=?
+2021-07-18 00:54:55,984 DEBUG o.h.SQL [http-nio-8080-exec-8] insert into revinfo (revtstmp) values (?)
+2021-07-18 00:54:55,986 DEBUG o.h.SQL [http-nio-8080-exec-8] insert into todos_aud (revtype, description, description_mod, target_date, target_date_mod, user_name, user_name_mod, id, rev) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2021-07-18 00:54:56,110 DEBUG o.h.SQL [http-nio-8080-exec-9] select todo0_.id as id1_1_, todo0_.description as descript2_1_, todo0_.target_date as target_d3_1_, todo0_.user_name as user_nam4_1_ from todos todo0_ where todo0_.user_name=?
+2021-07-18 00:57:47,050 INFO a.t.TodoManagementSpringBoot2Application [restartedMain] Starting TodoManagementSpringBoot2Application on DESKTOP-BRB3BI0 with PID 860 (C:\Users\Abdullah.DESKTOP-BRB3BI0\Desktop\todo-management-spring-boot\target\classes started by Abdullah in C:\Users\Abdullah.DESKTOP-BRB3BI0\Desktop\todo-management-spring-boot)
+2021-07-18 00:57:47,050 DEBUG a.t.TodoManagementSpringBoot2Application [restartedMain] Running with Spring Boot v2.0.4.RELEASE, Spring v5.0.8.RELEASE
+2021-07-18 00:57:47,051 INFO a.t.TodoManagementSpringBoot2Application [restartedMain] No active profile set, falling back to default profiles: default
+2021-07-18 00:57:54,351 INFO a.t.TodoManagementSpringBoot2Application [restartedMain] Started TodoManagementSpringBoot2Application in 7.725 seconds (JVM running for 11.142)
+2021-07-18 00:59:17,979 INFO a.t.TodoManagementSpringBoot2Application [restartedMain] Starting TodoManagementSpringBoot2Application on DESKTOP-BRB3BI0 with PID 12732 (C:\Users\Abdullah.DESKTOP-BRB3BI0\Desktop\todo-management-spring-boot\target\classes started by Abdullah in C:\Users\Abdullah.DESKTOP-BRB3BI0\Desktop\todo-management-spring-boot)
+2021-07-18 00:59:17,980 DEBUG a.t.TodoManagementSpringBoot2Application [restartedMain] Running with Spring Boot v2.0.4.RELEASE, Spring v5.0.8.RELEASE
+2021-07-18 00:59:17,986 INFO a.t.TodoManagementSpringBoot2Application [restartedMain] No active profile set, falling back to default profiles: default
+2021-07-18 00:59:25,700 INFO a.t.TodoManagementSpringBoot2Application [restartedMain] Started TodoManagementSpringBoot2Application in 8.172 seconds (JVM running for 10.813)
+2021-07-18 01:03:03,257 INFO a.t.TodoManagementSpringBoot2Application [restartedMain] Starting TodoManagementSpringBoot2Application on DESKTOP-BRB3BI0 with PID 1372 (C:\Users\Abdullah.DESKTOP-BRB3BI0\Desktop\todo-management-spring-boot\target\classes started by Abdullah in C:\Users\Abdullah.DESKTOP-BRB3BI0\Desktop\todo-management-spring-boot)
+2021-07-18 01:03:03,258 DEBUG a.t.TodoManagementSpringBoot2Application [restartedMain] Running with Spring Boot v2.0.4.RELEASE, Spring v5.0.8.RELEASE
+2021-07-18 01:03:03,259 INFO a.t.TodoManagementSpringBoot2Application [restartedMain] No active profile set, falling back to default profiles: default
+2021-07-18 01:03:10,700 INFO a.t.TodoManagementSpringBoot2Application [restartedMain] Started TodoManagementSpringBoot2Application in 8.292 seconds (JVM running for 11.005)

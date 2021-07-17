@@ -1,7 +1,6 @@
 package abdullah.todomanagement.model;
 
 import org.hibernate.envers.Audited;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.Date;
 
@@ -10,13 +9,13 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "todos")
-@EntityListeners(AuditingEntityListener.class)
+//@EntityListeners(AuditingEntityListener.class)
 @Audited(withModifiedFlag = true)
 public class Todo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private Long id;
 
 	private String userName;
 
@@ -36,11 +35,11 @@ public class Todo {
 		this.targetDate = targetDate;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

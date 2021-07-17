@@ -1,11 +1,12 @@
 package abdullah.todomanagement.repository;
 
-import java.util.List;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import abdullah.todomanagement.model.Todo;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.history.RevisionRepository;
+import org.springframework.stereotype.Repository;
 
-public interface TodoRepository extends JpaRepository<Todo, Long>{
+import java.util.List;
+@Repository
+public interface TodoRepository extends CrudRepository<Todo, Long>, RevisionRepository<Todo, Long, Long> {
 	List<Todo> findByUserName(String user);
 }
