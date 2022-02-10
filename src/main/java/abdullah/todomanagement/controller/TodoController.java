@@ -3,8 +3,11 @@ package abdullah.todomanagement.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+import abdullah.todomanagement.config.TokenManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -85,10 +88,15 @@ public class TodoController {
 	}
 
 	@RequestMapping(value = "/add-todo", method = RequestMethod.POST)
-	public String addTodo(ModelMap model, @Valid Todo todo, BindingResult result) {
+	public String addTodo(ModelMap model,HttpServletRequest request
+			,   HttpServletResponse response, @Valid Todo todo, BindingResult result) {
 
 		if (result.hasErrors()) {
 			return "todo";
+		}
+
+		if (!TokenManager.isTokenValid(request)) {
+			return "redirect:/list-todos";
 		}
 
 		todo.setUserName(getLoggedInUserName(model));

@@ -1,3 +1,4 @@
+<%@ taglib prefix="tags" tagdir="/WEB-INF/tags/" %>
 <%@ include file="common/header.jspf"%>
 <%@ include file="common/navigation.jspf"%>
 <div class="container">
@@ -7,6 +8,7 @@
 				<div class="panel-heading">Add TODO</div>
 				<div class="panel-body">
 					<form:form method="post" modelAttribute="todo">
+						<tags:token/>
 						<form:hidden path="id" />
 						<fieldset class="form-group">
 							<form:label path="description">Description</form:label>
