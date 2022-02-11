@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -jar target/*.jar
+web: java -Dserver.port=$PORT -jar target/todo-management-spring-boot-0.0.1-SNAPSHOT.jar
