@@ -94,20 +94,7 @@ public class UserController {
 		logger.debug("showAddUserForm()");
 
 		User user = new User();
-
-		/*// set default value
-		user.setName("mkyong123");
-		user.setEmail("test@gmail.com");
-		user.setAddress("abc 88");
-		//user.setPassword("123");
-		//user.setConfirmPassword("123");
-		user.setNewsletter(true);
-		user.setSex("M");
-		user.setFramework(new ArrayList<String>(Arrays.asList("Spring MVC", "GWT")));
-		user.setSkill(new ArrayList<String>(Arrays.asList("Spring", "Grails", "Groovy")));
-		user.setCountry("SG");
-		user.setNumber(2);*/
-
+		
 		model.addAttribute("userForm", user);
 
 		populateDefaultModel(model);
