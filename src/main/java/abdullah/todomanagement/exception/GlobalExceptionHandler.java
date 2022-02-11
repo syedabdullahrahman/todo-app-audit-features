@@ -3,6 +3,7 @@ package abdullah.todomanagement.exception;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.AnnotationUtils;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -10,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
@@ -18,7 +20,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 	private final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 	
 	@ExceptionHandler(value = Exception.class)
-	public ModelAndView defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {
+	public ModelAndView defaultErrorHandler(HttpServletRequest req, HttpServletResponse res, Exception e) throws Exception {
 		
 		logger.error("[URL] : {}", req.getRequestURL(), e);
 		
@@ -34,6 +36,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 		mav.addObject("exception", e);
 		mav.addObject("url", req.getRequestURL());
 		mav.setViewName(DEFAULT_ERROR_VIEW);
+		res.sendError(HttpStatus.NOT_ACCEPTABLE.value(), e.getLocalizedMessage());
 		return mav;
 	}
 	

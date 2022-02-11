@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+import abdullah.todomanagement.config.TokenException;
 import abdullah.todomanagement.config.TokenManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -96,7 +97,7 @@ public class TodoController {
 		}
 
 		if (!TokenManager.isTokenValid(request)) {
-			return "redirect:/list-todos";
+            throw new TokenException("Wrong synchronizer token passed. Please refresh page before operation");
 		}
 
 		todo.setUserName(getLoggedInUserName(model));
