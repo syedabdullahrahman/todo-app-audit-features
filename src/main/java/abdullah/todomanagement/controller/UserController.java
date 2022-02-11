@@ -94,7 +94,7 @@ public class UserController {
 		logger.debug("showAddUserForm()");
 
 		User user = new User();
-		
+
 		model.addAttribute("userForm", user);
 
 		populateDefaultModel(model);
