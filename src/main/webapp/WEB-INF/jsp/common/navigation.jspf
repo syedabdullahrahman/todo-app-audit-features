@@ -9,7 +9,15 @@
 			<li><a href="/list-todos">Todos</a></li>
 		</ul>
 		<ul class="nav navbar-nav">
+			<li><a href="/users/add">Add User</a></li>
+		</ul>
+		<ul class="nav navbar-nav">
+			<li><a href="/users">All User</a></li>
+		</ul>
+		<ul class="nav navbar-nav">
 			<li><a href="/logout">Logout</a></li>
 		</ul>
+
+
 	</div>
 </nav>
