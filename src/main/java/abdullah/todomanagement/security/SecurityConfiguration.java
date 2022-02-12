@@ -1,6 +1,7 @@
 package abdullah.todomanagement.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -12,6 +13,9 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+
+    @Value("${spring.profiles.active}")
+    private String activeProfile;
 
     @Autowired
     public void configureGlobalSecurity(AuthenticationManagerBuilder auth)
@@ -36,17 +40,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .httpBasic();
 
-        http.csrf().disable();
+        if(activeProfile.equalsIgnoreCase("dev")){
+            http.csrf().disable();
+        } else {
+            /**
+             *  HERE !  Defaults XSRF-TOKEN as cookie name and X-XSRF-TOKEN as header name
+             */
+            http.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
 
-        /**
-         *  HERE !  Defaults XSRF-TOKEN as cookie name and X-XSRF-TOKEN as header name
-         */
-        //http.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
 
-
-        /**
-         * Prevention from Click jacking. More: https://en.wikipedia.org/wiki/Clickjacking
-         */
-        http.headers().frameOptions().disable();
+            /**
+             * Prevention from Click jacking. More: https://en.wikipedia.org/wiki/Clickjacking
+             */
+            http.headers().frameOptions().disable();
+        }
     }
 }
