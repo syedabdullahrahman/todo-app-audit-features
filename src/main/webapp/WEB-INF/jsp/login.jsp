@@ -36,6 +36,15 @@
 <div class="login-form">
     <form action="\login" method="post">
         <h2 class="text-center">Log in</h2>
+
+        <%--For HttpOnly CSRF --%>
+       <%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
+
+
+        <%-- For CookieCsrfTokenRepository.withHttpOnlyFalse() --%>
+        <input type="hidden" name="_csrf" value="${cookie['XSRF-TOKEN'].getValue()}" />
+
+
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Username" required="required" name="username">
         </div>

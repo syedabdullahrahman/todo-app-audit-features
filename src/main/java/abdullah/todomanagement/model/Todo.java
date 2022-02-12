@@ -1,6 +1,7 @@
 package abdullah.todomanagement.model;
 
 import org.hibernate.envers.Audited;
+import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import java.util.Date;
 
@@ -11,11 +12,7 @@ import javax.validation.constraints.Size;
 @Table(name = "todos")
 //@EntityListeners(AuditingEntityListener.class)
 @Audited(withModifiedFlag = true)
-public class Todo {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+public class Todo extends AbstractPersistable<Long> {
 
 	private String userName;
 
@@ -33,14 +30,6 @@ public class Todo {
 		this.userName = user;
 		this.description = desc;
 		this.targetDate = targetDate;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getUserName() {

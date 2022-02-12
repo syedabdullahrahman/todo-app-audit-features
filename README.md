@@ -9,3 +9,8 @@
 * Prevention of duplicate form submission (using  Synchronizer token pattern)
     - a result of double-clicking a submit button
     - trying to submit a form from the browser history after using the back button.
+    
+    
+* CSRF token implementation
+    - Http Only CSRF 
+    - Cookie based CSRF

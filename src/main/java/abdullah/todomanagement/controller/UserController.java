@@ -105,7 +105,7 @@ public class UserController {
 
 	// show update form
 	@RequestMapping(value = "/users/{id}/update", method = RequestMethod.GET)
-	public String showUpdateUserForm(@PathVariable("id") int id, Model model) {
+	public String showUpdateUserForm(@PathVariable("id") Long id, Model model) throws Exception {
 
 		logger.debug("showUpdateUserForm() : {}", id);
 
@@ -120,7 +120,7 @@ public class UserController {
 
 	// delete user
 	@RequestMapping(value = "/users/{id}/delete", method = RequestMethod.POST)
-	public String deleteUser(@PathVariable("id") int id, final RedirectAttributes redirectAttributes) {
+	public String deleteUser(@PathVariable("id") Long id, final RedirectAttributes redirectAttributes) {
 
 		logger.debug("deleteUser() : {}", id);
 
@@ -135,7 +135,7 @@ public class UserController {
 
 	// show user
 	@RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
-	public String showUser(@PathVariable("id") int id, Model model) {
+	public String showUser(@PathVariable("id") Long id, Model model) throws Exception {
 
 		logger.debug("showUser() id: {}", id);
 

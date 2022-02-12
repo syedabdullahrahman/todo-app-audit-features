@@ -1,10 +1,16 @@
 package abdullah.todomanagement.model;
 
+import org.hibernate.envers.Audited;
+import org.springframework.data.jpa.domain.AbstractPersistable;
+
+import javax.persistence.*;
 import java.util.List;
 
-public class User {
-	// form:hidden - hidden value
-	Integer id;
+
+@Entity
+@Table(name = "users")
+@Audited(withModifiedFlag = true)
+public class User extends AbstractPersistable<Long> {
 
 	// form:input - textbox
 	String name;
@@ -24,6 +30,7 @@ public class User {
 	// form:checkbox - single checkbox
 	boolean newsletter;
 
+	@ElementCollection
 	// form:checkboxes - multiple checkboxes
 	List<String> framework;
 
@@ -36,19 +43,12 @@ public class User {
 	// form:select - form:option - dropdown - single select
 	String country;
 
+	@ElementCollection
 	// form:select - multiple=true - dropdown - multiple select
 	List<String> skill;
 
 	public boolean isNew() {
-		return (this.id == null);
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
+		return (this.getId() == null);
 	}
 
 	public String getName() {
@@ -141,7 +141,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", email=" + email + ", address=" + address
+		return "User [id=" + getId() + ", name=" + name + ", email=" + email + ", address=" + address
 				+ ", password=" + password + ", confirmPassword=" + confirmPassword
 				+ ", newsletter=" + newsletter + ", framework=" + framework + ", sex=" + sex
 				+ ", number=" + number + ", country=" + country + ", skill=" + skill + "]" + isNew();

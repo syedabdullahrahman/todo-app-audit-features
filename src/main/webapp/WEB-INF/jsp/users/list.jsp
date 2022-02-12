@@ -9,6 +9,18 @@
 <%@ include file="../common/header.jspf"%>
 <%@ include file="../common/navigation.jspf"%>
 
+<%--For HttpOnly CSRF --%>
+<%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
+
+<%-- For CookieCsrfTokenRepository.withHttpOnlyFalse() --%>
+<input type="hidden" name="_csrf" value="${cookie['XSRF-TOKEN'].getValue()}" />
+
+<%--For delete POST request --%>
+<meta name="_csrf" content="${_csrf.token}"/>
+<!-- default header name is X-CSRF-TOKEN -->
+<meta name="_csrf_header" content="${_csrf.headerName}"/>
+<!-- ... -->
+
 <body>
 
 	<div class="container">
@@ -71,17 +83,21 @@
         form.setAttribute("method", method);
         form.setAttribute("action", path);
 
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+
+
         for ( var key in params) {
             if (params.hasOwnProperty(key)) {
                 var hiddenField = document.createElement("input");
                 hiddenField.setAttribute("type", "hidden");
                 hiddenField.setAttribute("name", key);
                 hiddenField.setAttribute("value", params[key]);
-
+                hiddenField.setAttribute("_csrf",token);
                 form.appendChild(hiddenField);
             }
         }
-
+        debugger
         document.body.appendChild(form);
         form.submit();
     }
