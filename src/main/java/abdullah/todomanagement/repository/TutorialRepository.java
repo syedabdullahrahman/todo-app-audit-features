@@ -11,5 +11,5 @@ import java.util.List;
 
 @Repository
 public interface TutorialRepository extends JpaRepository<Tutorial, Long>, RevisionRepository<Tutorial, Long, Long> {
-	List<Tutorial> findByTitleIsLike(String title);
+	List<Tutorial> findByTitleContaining(String title);
 }

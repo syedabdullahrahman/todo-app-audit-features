@@ -27,6 +27,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api")
+@CrossOrigin(origins="http://localhost:4200")
 public class TutorialController {
 
 	@Autowired
@@ -67,6 +68,6 @@ public class TutorialController {
 
 	@RequestMapping(value = "/tutorials/search", method = RequestMethod.GET)
 	public List<Tutorial> findByTitle(@RequestParam String title) {
-		return tutorialRepository.findByTitleIsLike(title);
+		return tutorialRepository.findByTitleContaining(title);
 	}
 }
