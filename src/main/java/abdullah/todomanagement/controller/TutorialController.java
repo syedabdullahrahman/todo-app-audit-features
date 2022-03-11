@@ -65,7 +65,7 @@ public class TutorialController {
 		return tutorialRepository.save(tutorial);
 	}
 
-	@RequestMapping(value = "/tutorials", method = RequestMethod.POST)
+	@RequestMapping(value = "/tutorials/search", method = RequestMethod.GET)
 	public List<Tutorial> findByTitle(@RequestParam String title) {
 		return tutorialRepository.findByTitleIsLike(title);
 	}
