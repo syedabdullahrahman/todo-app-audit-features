@@ -27,7 +27,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api")
-@CrossOrigin(origins={"http://localhost:4200","http://todo-sync-token.herokuapp.com"})
+@CrossOrigin(origins={"http://localhost:4200","https://sample-angular-project.herokuapp.com"})
 public class TutorialController {
 
 	@Autowired
