@@ -47,20 +47,22 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .httpBasic();
 
-        if(activeProfile.equalsIgnoreCase("dev")){
+        // TODO: FOR ANGULAR DISABLED CSRF
+        http.csrf().disable();
+        /*if(activeProfile.equalsIgnoreCase("dev")){
             http.csrf().disable();
         } else {
-            /**
+            *//**
              *  HERE !  Defaults XSRF-TOKEN as cookie name and X-XSRF-TOKEN as header name
-             */
+             *//*
             http.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
 
 
-            /**
+            *//**
              * Prevention from Click jacking. More: https://en.wikipedia.org/wiki/Clickjacking
-             */
+             *//*
             http.headers().frameOptions().disable();
-        }
+        }*/
     }
 
     @Bean
