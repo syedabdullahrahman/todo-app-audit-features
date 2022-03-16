@@ -30,7 +30,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().authorizeRequests()
                 .antMatchers("/login", "/h2-console/**").permitAll()
-				.antMatchers("/api/tutorials/**").permitAll()
+				.antMatchers("/api/tutorials","/api/tutorials/**").permitAll()
                 .antMatchers("/", "/*todo*/**","/*users*/**").access("hasRole('USER')").and()
                 .formLogin()
                 .loginPage("/login")
