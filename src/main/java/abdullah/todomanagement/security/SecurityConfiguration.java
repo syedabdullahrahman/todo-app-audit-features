@@ -28,7 +28,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+        http.cors().and().authorizeRequests()
                 .antMatchers("/login", "/h2-console/**").permitAll()
 				.antMatchers("api/tutorials/**").permitAll()
                 .antMatchers("/", "/*todo*/**","/*users*/**").access("hasRole('USER')").and()
